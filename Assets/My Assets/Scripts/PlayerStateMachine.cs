@@ -36,53 +36,126 @@ public class PlayerStateMachine : MonoBehaviour
         switch (state)
         {
             case (State.Idle):
-                if (Input.GetButton("StepUp") && hasStep)
+                IdleState();
+                break;
+            case (State.Walk):
+                WalkState();
+                break;
+            case (State.StepUp):
+                StepUpState();
+                break;
+            case (State.StepDown):
+                StepDownState();
+                break;
+            case (State.IRightHigh):
+                IRightHighState();
+                break;
+            case (State.IRightLow):
+                IRightLowState();
+                break;
+                
+        }
+    }
+
+    void IdleState()
+    {
+        if (Input.GetButton("StepUp") && hasStep)
+        {
+            state = State.StepUp;
+        }
+        else
+        {
+            if (Input.GetButton("Walk"))
+            {
+
+            }
+            else
+            {
+                if (Input.GetButton("RightHigh"))
                 {
-                    state = State.StepUp;
+
                 }
                 else
                 {
-                    if (Input.GetButton("Walk"))
+                    if (Input.GetButton("RightLow"))
                     {
 
                     }
                     else
                     {
-                        if (Input.GetButton("RightHigh"))
+                        if (Input.GetButton("LeftHigh"))
                         {
 
                         }
                         else
                         {
-                            if (Input.GetButton("RightLow"))
+                            if (Input.GetButton("LeftLow"))
                             {
 
-                            }
-                            else
-                            {
-                                if (Input.GetButton("LeftHigh"))
-                                {
-
-                                }
-                                else
-                                {
-                                    if (Input.GetButton("LeftLow"))
-                                    {
-                                    
-                                    }
-                                }
                             }
                         }
                     }
                 }
-                break;
-            case (State.Walk):
-                if (!Input.GetButton("Walk"))
-                {
-                    
-                }
-                break;
+            }
         }
+    }
+
+    void WalkState()
+    {
+        if (!Input.GetButton("Walk"))
+        {
+
+        }
+    }
+
+    void StepUpState()
+    {
+        
+    }
+
+    void StepDownState()
+    {
+        
+    }
+
+    void IRightHighState()
+    {
+        
+    }
+
+    void IRightLowState()
+    {
+        
+    }
+
+    void ILeftHighState()
+    {
+        
+    }
+
+    void ILeftLowState()
+    {
+        
+    }
+
+    void IRightHighLeftHighState()
+    {
+        
+    }
+
+    void IRightHighLeftLowState()
+    {
+        
+    }
+
+    void IRightLowLeftHithState()
+    {
+        
+    }
+
+    void IRightLowLeftLowState()
+    {
+        
     }
 }
 
