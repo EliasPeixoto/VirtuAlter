@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateStepUp 
+public class StateStepUp : MonoBehaviour
 {
-    float jumpForce = 100f;
+    
 
-    public StateStepUp (GameObject obj)
+    public StateStepUp(GameObject obj)
     {
         Debug.Log("StepUp");
-        obj.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
+        AnimatorStateInfo state = obj.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0); 
+        if (!state.IsName("Step"))
+        {
+            obj.GetComponent<Animator>().Play("Step");
+        }
     }
-   
+
 }

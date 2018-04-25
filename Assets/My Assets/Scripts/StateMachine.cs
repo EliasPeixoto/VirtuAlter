@@ -7,6 +7,10 @@ public class StateMachine : MonoBehaviour
     public GameObject leftHand;
     public GameObject rightHand;
 
+    public float acceleration = 85;
+    public float jumpForce = 200;
+        
+    public bool isWalking = false;
     public bool idle = false;
     public bool rightLow = false;
     public bool rightHigh = false;
@@ -23,10 +27,34 @@ public class StateMachine : MonoBehaviour
         Machine();
     }
 
+    IEnumerator DelayTranslate(float seconds)
+    {
+        GetComponent<Rigidbody>().AddForce(Vector3.up * 10);
+        yield return new WaitForSeconds(seconds);
+        transform.Translate(Vector3.forward * 1);
+
+    }
+
+    IEnumerator DelayIdle(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        idle = false;
+    }
+
+   
     void Machine()
     {
         if (!idle)
         {
+            if (isWalking)
+            {
+                StateWalk Walk = new StateWalk(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("Idle");
+                StateIdle Idle = new StateIdle(this.gameObject);
+            }
             if (rightLow || rightHigh || leftHigh || leftLow)
             {
                 if (rightLow)
@@ -99,10 +127,6 @@ public class StateMachine : MonoBehaviour
                     }
                 }
             }
-            else
-            {
-                StateWalk Walk = new StateWalk(this.gameObject);
-            }
             if (!rightLow && !rightHigh)
             {
                 StateHand RightHand = new StateHand(rightHand);
@@ -117,6 +141,7 @@ public class StateMachine : MonoBehaviour
             if (hasStep && stepUp)
             {
                 StateStepUp StepUp = new StateStepUp(this.gameObject);
+                StartCoroutine(DelayTranslate(0.25f));
                 hasStep = false;
                 idle = false;
             }
@@ -124,11 +149,13 @@ public class StateMachine : MonoBehaviour
             {
                 if (hasFall && stepDown)
                 {
-                    idle = false;
+                    transform.Translate(Vector3.forward * acceleration);
+                    StartCoroutine(DelayIdle(1));
+
                 }
                 else
                 {
-                    StateIdle Idle = new StateIdle();
+                   
                 }
             }
         }

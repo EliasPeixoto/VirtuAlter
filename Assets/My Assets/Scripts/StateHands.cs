@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateHands 
+public class StateHands
 {
     // The variable state is used to determine wich combination of hands the script shoud activate.
     // 1 - leftLow and rightLow, 2 - leftHigh and rightHigh, 3 - leftLow and rightHigh, 4 - leftHigh and rightLow
-    float highHeight = 0.8f;
-    float lowHeight = 0f;
+    float highHeight = 1.8f;
+    float lowHeight = 1f;
     float speed = 0.05f;
-    public StateHands (GameObject obj,GameObject rightHand, GameObject leftHand, int state)
+
+    public StateHands(GameObject obj, GameObject rightHand, GameObject leftHand, int state)
     {
         Debug.Log("Hands");
         //obj.transform.Translate(Vector3.forward * speed);

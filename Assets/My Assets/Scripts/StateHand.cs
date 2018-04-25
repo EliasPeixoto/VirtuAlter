@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class StateHand
 {
-    float highHeight = 0.8f;
-    float lowHeight = 0f;
+    float highHeight = 1.8f;
+    float lowHeight = 1f;
     float speed = 0.05f;
 
     public StateHand(GameObject obj, GameObject hand, bool isLow)
     {
         Debug.Log("Hand");
-        obj.transform.Translate(Vector3.forward * speed);
+
         if (isLow)
         {
             hand.SetActive(true);

@@ -32,16 +32,16 @@ public class StepDetection : MonoBehaviour
     {
         if (!Physics.Linecast(position, fallDetect.transform.position, layerMask))
         {
-            GetComponent<StateMachine>().hasFall = true;
+            GetComponent<Animator>().SetBool("HasFall", true);
             if (fallDetect.activeSelf)
             {
-                GetComponent<StateMachine>().idle = true;
+                //GetComponent<StateMachine>().idle = true;
                 StartCoroutine(ObjectCoolDown(fallDetect));
             }
         }
         else
         {
-            GetComponent<StateMachine>().hasFall = false;
+            GetComponent<Animator>().SetBool("HasFall", false);
         }
     }
 
@@ -49,11 +49,11 @@ public class StepDetection : MonoBehaviour
     {
         if (Physics.Linecast(position, floorDetect.transform.position, layerMask))
         {
-            GetComponent<StateMachine>().hasFloor = true;
+            GetComponent<Animator>().SetBool("HasFloor", true);
         }
         else
         {
-            GetComponent<StateMachine>().hasFloor = false;
+            GetComponent<Animator>().SetBool("HasFloor", false);
         }
     }
 
@@ -62,16 +62,16 @@ public class StepDetection : MonoBehaviour
        
         if (Physics.Linecast(position, stepDetect.transform.position, layerMask))
         {
-            GetComponent<StateMachine>().hasStep = true;
+            GetComponent<Animator>().SetBool("HasStep", true);
             if (stepDetect.activeSelf)
             {
-                GetComponent<StateMachine>().idle = true;
+                //GetComponent<StateMachine>().idle = true;
                 StartCoroutine(ObjectCoolDown(stepDetect));
             }
         }
         else
         {
-            GetComponent<StateMachine>().hasStep = false;
+            GetComponent<Animator>().SetBool("HasStep", false);
         }
     }
 }
