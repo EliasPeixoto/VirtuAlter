@@ -9,10 +9,11 @@ public class Walk_Behaviour : StateMachineBehaviour
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
     //
     //}
-    public float speed = 1f;
+
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        float speed = animator.GetComponent<PlayerController>().speed;
         animator.transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
     }
 

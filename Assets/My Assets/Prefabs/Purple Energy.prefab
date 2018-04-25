@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 33826624133069288}
   - component: {fileID: 135004968337956258}
   - component: {fileID: 23990603688070530}
+  - component: {fileID: 114040082983691948}
   m_Layer: 0
   m_Name: Purple Energy
   m_TagString: Untagged
@@ -112,6 +113,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1677349575891878}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114040082983691948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1677349575891878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5d37087f88e6d4795639b14f11f717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135004968337956258
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -119,7 +131,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1677349575891878}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

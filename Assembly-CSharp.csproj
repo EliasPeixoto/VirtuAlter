@@ -53,6 +53,7 @@
      <Compile Include="Assets\My Assets\Scripts\HandCollider.cs" />
      <Compile Include="Assets\My Assets\Scripts\HandLowBehaviour.cs" />
      <Compile Include="Assets\My Assets\Scripts\Hand_Behaviour.cs" />
+     <Compile Include="Assets\My Assets\Scripts\NavTest.cs" />
      <Compile Include="Assets\My Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\My Assets\Scripts\PlayerScore.cs" />
      <Compile Include="Assets\My Assets\Scripts\PlayerStateMachine.cs" />
